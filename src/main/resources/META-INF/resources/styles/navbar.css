@@ -1,0 +1,23 @@
+/*  NAVBAR STYLESHEET   */
+
+/* Base style for the router links */
+.navbar-link {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover state (change color to blue) */
+.navbar-link:hover {
+    color: blue;
+}
+
+/* Selected state (add blue background and white text) */
+.navbar-link-active {
+    background-color: blue;
+    color: white !important;  /* Override other colors */
+    border-radius: 5px;
+}
