@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!-- Project from https://start.vaadin.com/project/709e6f88-8eab-4c42-af62-6943a516c197 -->
+    <!-- Project from https://start.vaadin.com/project/6706be82-d020-4fd7-b59a-7d85c185b522 -->
     <groupId>pt.archkode.liftus</groupId>
     <artifactId>liftus</artifactId>
     <name>liftus</name>

@@ -1,28 +1,40 @@
 package pt.archkode.liftus.web.layouts;
 
-import com.vaadin.flow.component.applayout.AppLayout;
-import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
-import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.router.RouterLink;
+import java.util.Optional;
 
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.HighlightConditions;
+import com.vaadin.flow.router.RouterLink;
+import com.vaadin.flow.theme.lumo.LumoUtility;
+
+import pt.archkode.liftus.data.User;
+import pt.archkode.liftus.security.AuthenticatedUser;
 import pt.archkode.liftus.web.views.dashboard.DashboardView;
 import pt.archkode.liftus.web.views.home.HomeView;
 
-
 @CssImport("./styles/navbar.css")
-public class RootLayout extends AppLayout {
+public class RootLayout extends VerticalLayout {
 
-    public RootLayout() {
-        super();
+    private AuthenticatedUser authenticatedUser;
+    private Div body;
 
-        final HorizontalLayout header = createHeader();
-        final HorizontalLayout footer = createFooter();
+    public RootLayout(AuthenticatedUser authenticatedUser) {
+        this.authenticatedUser = authenticatedUser;
 
-        addToNavbar(header);
-        addToDrawer(footer);
+        setWidthFull();
+        setPadding(false);
+        setSpacing(false);
+
+        HorizontalLayout header = createHeader();
+        body = new Div();
+        HorizontalLayout footer = createFooter();
+
+        add(header, body, footer);
     }
 
     private HorizontalLayout createHeader() {
@@ -30,10 +42,16 @@ public class RootLayout extends AppLayout {
         logo.setHeight("60px");
 
         RouterLink homeLink = new RouterLink("Home", HomeView.class);
-        homeLink.addClassName("navbar-link");
+        homeLink.setHighlightCondition(HighlightConditions.sameLocation());
+        homeLink.addClassNames("text-header","text-m", "p-s", "rounded-l");
+        homeLink.getStyle().set("transition", "all 0.3s");
+        homeLink.getElement().addEventListener("mouseover", e -> homeLink.addClassNames("bg-contrast-5", "font-semibold"));
+        homeLink.getElement().addEventListener("mouseout", e -> homeLink.removeClassNames("bg-contrast-5", "font-semibold"));
 
-        RouterLink dashboardLink = new RouterLink("Dashboard", DashboardView.class);
-        dashboardLink.addClassName("navbar-link-dashboard");
+        Optional<User> existsUser = authenticatedUser.get();
+        RouterLink dashboardLink = new RouterLink(
+                existsUser.isPresent() ? "Hey, " + existsUser.get().getName() : "Dashboard", DashboardView.class);
+        dashboardLink.addClassNames("text-m");
 
         HorizontalLayout headerLinks = new HorizontalLayout(homeLink, dashboardLink);
         headerLinks.setSpacing(true);
@@ -50,5 +68,10 @@ public class RootLayout extends AppLayout {
     private HorizontalLayout createFooter() {
         HorizontalLayout footer = new HorizontalLayout();
         return footer;
+    }
+
+    public void addView(Component component) {
+        body.removeAll();
+        body.add(component);
     }
 }

@@ -1,23 +1,19 @@
-/*  NAVBAR STYLESHEET   */
+a {
+  text-decoration: none !important;
+}
 
-/* Base style for the router links */
 .navbar-link {
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  color: black;
+  padding: 2px 6px;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Hover state (change color to blue) */
-.navbar-link:hover {
-    color: blue;
+.navbar-link:hover:not(.link-avatar) {
+  color: var(--lumo-primary-color);
+  background-color: var(--lumo-primary-color-10pct);
 }
 
-/* Selected state (add blue background and white text) */
-.navbar-link-active {
-    background-color: blue;
-    color: white !important;  /* Override other colors */
-    border-radius: 5px;
+.link-avatar {
+  background-color: var(--lumo-primary-color-);
 }

@@ -1,6 +1,5 @@
 package pt.archkode.liftus;
 
-import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
@@ -20,7 +19,6 @@ import pt.archkode.liftus.data.SamplePersonRepository;
  *
  */
 @SpringBootApplication
-@NpmPackage(value = "@fontsource/roboto", version = "4.5.0")
 @Theme(value = "liftus", variant = Lumo.LIGHT)
 public class Application implements AppShellConfigurator {
 
@@ -33,6 +31,7 @@ public class Application implements AppShellConfigurator {
             DataSource dataSource,
             SqlInitializationProperties properties,
             SamplePersonRepository repository) {
+
         return new SqlDataSourceScriptDatabaseInitializer(dataSource, properties) {
             @Override
             public boolean initializeDatabase() {

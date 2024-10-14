@@ -3,7 +3,6 @@
   "license": "UNLICENSED",
   "type": "module",
   "dependencies": {
-    "@fontsource/roboto": "4.5.0",
     "@polymer/polymer": "3.5.1",
     "@vaadin/bundles": "24.4.10",
     "@vaadin/common-frontend": "0.0.19",
@@ -46,7 +45,6 @@
   },
   "vaadin": {
     "dependencies": {
-      "@fontsource/roboto": "4.5.0",
       "@polymer/polymer": "3.5.1",
       "@vaadin/bundles": "24.4.10",
       "@vaadin/common-frontend": "0.0.19",
@@ -87,7 +85,7 @@
       "workbox-core": "7.1.0",
       "workbox-precaching": "7.1.0"
     },
-    "hash": "5e5836c78d5085246cfe6da46f189a45b2e8c817ae304c33894bb2f711624877"
+    "hash": "1ed6b2ff3a24791c1cc8ea8fbd0f87f223cc7c7ff9ca29e8995428d65daded8c"
   },
   "overrides": {
     "@vaadin/bundles": "$@vaadin/bundles",
@@ -104,7 +102,6 @@
     "lit": "$lit",
     "@polymer/polymer": "$@polymer/polymer",
     "react": "$react",
-    "@fontsource/roboto": "$@fontsource/roboto",
     "date-fns": "$date-fns",
     "proj4": "$proj4",
     "@vaadin/vaadin-themable-mixin": "$@vaadin/vaadin-themable-mixin",
