@@ -21,7 +21,7 @@ import pt.archkode.liftus.data.SamplePersonRepository;
  */
 @SpringBootApplication
 @NpmPackage(value = "@fontsource/roboto", version = "4.5.0")
-@Theme(value = "liftus", variant = Lumo.DARK)
+@Theme(value = "liftus", variant = Lumo.LIGHT)
 public class Application implements AppShellConfigurator {
 
     public static void main(String[] args) {
@@ -29,9 +29,10 @@ public class Application implements AppShellConfigurator {
     }
 
     @Bean
-    SqlDataSourceScriptDatabaseInitializer dataSourceScriptDatabaseInitializer(DataSource dataSource,
-            SqlInitializationProperties properties, SamplePersonRepository repository) {
-        // This bean ensures the database is only initialized when empty
+    SqlDataSourceScriptDatabaseInitializer dataSourceScriptDatabaseInitializer(
+            DataSource dataSource,
+            SqlInitializationProperties properties,
+            SamplePersonRepository repository) {
         return new SqlDataSourceScriptDatabaseInitializer(dataSource, properties) {
             @Override
             public boolean initializeDatabase() {
