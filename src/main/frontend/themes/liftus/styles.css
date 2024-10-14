@@ -1,0 +1,9 @@
+@import url('./views/master-detail-view.css');
+@import url('@fontsource/roboto/index.css');    html {
+--lumo-font-family: Roboto;
+
+    }
+
+    [theme~="dark"] {
+
+    }
