@@ -8,6 +8,8 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.HighlightAction;
+import com.vaadin.flow.router.HighlightActions;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.lumo.LumoUtility;
@@ -16,6 +18,7 @@ import pt.archkode.liftus.data.User;
 import pt.archkode.liftus.security.AuthenticatedUser;
 import pt.archkode.liftus.web.views.dashboard.DashboardView;
 import pt.archkode.liftus.web.views.home.HomeView;
+import pt.archkode.liftus.web.views.login.LoginView;
 
 @CssImport("./styles/navbar.css")
 public class RootLayout extends VerticalLayout {
@@ -29,10 +32,17 @@ public class RootLayout extends VerticalLayout {
         setWidthFull();
         setPadding(false);
         setSpacing(false);
+        setAlignItems(Alignment.CENTER);
+        setJustifyContentMode(JustifyContentMode.CENTER);
 
         HorizontalLayout header = createHeader();
+        header.setWidth("70%");
+
         body = new Div();
+        body.setWidth("70%");
+
         HorizontalLayout footer = createFooter();
+        footer.setWidth("70%");
 
         add(header, body, footer);
     }
@@ -43,15 +53,17 @@ public class RootLayout extends VerticalLayout {
 
         RouterLink homeLink = new RouterLink("Home", HomeView.class);
         homeLink.setHighlightCondition(HighlightConditions.sameLocation());
+        homeLink.setHighlightAction(HighlightActions.toggleClassName("font-medium"));
         homeLink.addClassNames("text-header","text-m", "p-s", "rounded-l");
-        homeLink.getStyle().set("transition", "all 0.3s");
-        homeLink.getElement().addEventListener("mouseover", e -> homeLink.addClassNames("bg-contrast-5", "font-semibold"));
-        homeLink.getElement().addEventListener("mouseout", e -> homeLink.removeClassNames("bg-contrast-5", "font-semibold"));
+        homeLink.getElement().addEventListener("mouseover", e -> homeLink.addClassName("bg-contrast-5"));
+        homeLink.getElement().addEventListener("mouseout", e -> homeLink.removeClassName("bg-contrast-5"));
 
         Optional<User> existsUser = authenticatedUser.get();
-        RouterLink dashboardLink = new RouterLink(
-                existsUser.isPresent() ? "Hey, " + existsUser.get().getName() : "Dashboard", DashboardView.class);
-        dashboardLink.addClassNames("text-m");
+        RouterLink dashboardLink = new RouterLink(existsUser.isPresent() ? "Hey, " + existsUser.get().getName() : "Dashboard", existsUser.isPresent() ? DashboardView.class : LoginView.class);
+        dashboardLink.addClassNames("text-primary","text-m", "p-s", "rounded-l", "bg-primary-10");
+        dashboardLink.getStyle().set("transition", "all 0.3s");
+        dashboardLink.getElement().addEventListener("mouseover", e -> dashboardLink.getStyle().set("transform", "scale(1.05)"));
+        dashboardLink.getElement().addEventListener("mouseout", e -> dashboardLink.getStyle().set("transform", "scale(1)"));    
 
         HorizontalLayout headerLinks = new HorizontalLayout(homeLink, dashboardLink);
         headerLinks.setSpacing(true);
