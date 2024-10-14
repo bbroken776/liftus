@@ -1,6 +1,9 @@
 package pt.archkode.liftus.security;
 
 import com.vaadin.flow.spring.security.VaadinWebSecurity;
+
+import pt.archkode.liftus.web.views.login.LoginView;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import pt.archkode.liftus.views.login.LoginView;
 
 @EnableWebSecurity
 @Configuration
