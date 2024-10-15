@@ -27,5 +27,35 @@
 }
 
 .jumping {
-  animation: jump 1s infinite;
+  animation: jump 2s infinite;
+}
+
+@media (max-width: 900px) {
+  .introduction-section {
+    justify-content: center !important;
+  }
+
+  .introduction-advertisement {
+    animation: pulse 1s infinite;
+  }
+
+  .introduction-text {
+    width: 100%;
+
+    align-items: center !important;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .introduction-image {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .introduction-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

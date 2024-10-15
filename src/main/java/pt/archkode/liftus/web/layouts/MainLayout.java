@@ -10,6 +10,9 @@ public class MainLayout extends VerticalLayout implements RouterLayout {
     private RootLayout rootLayout;
 
     public MainLayout(AuthenticatedUser authenticatedUser) {
+        setPadding(false);
+        setSpacing(false);
+
         rootLayout = new RootLayout(authenticatedUser);
         add(rootLayout);
     }

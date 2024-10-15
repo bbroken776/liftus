@@ -1,0 +1,6 @@
+@media (min-width: 768px) {
+    .container {
+        padding-left: 2rem; /* Matches md:px-8 from Tailwind */
+        padding-right: 2rem;
+    }
+}
