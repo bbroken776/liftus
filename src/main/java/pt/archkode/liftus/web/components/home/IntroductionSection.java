@@ -37,7 +37,7 @@ public class IntroductionSection extends SectionComponent {
         advertisement.addClassNames("introduction-advertisement", "text-xs", "text-body", "text-primary", "font-bold", "p-s", "rounded-l", "bg-primary-10");
 
         H1 title = new H1("Welcome to Liftus");
-        title.addClassNames("font-bold", "text-3xl", "text-header", "text-primary");
+        title.addClassNames("font-bold", "text-3xl", "text-primary");
         title.getStyle().set("margin-top", "20px");
 
         Span introduction = new Span("Liftus is a cutting-edge ride-sharing platform that connects drivers and passengers in real time, offering a quick and reliable way to get around. Whether you're commuting to work, running errands, or heading out for a night on the town, simply request a ride via our user-friendly app, and a driver will arrive to pick you up within minutes. Experience the convenience of modern transportation with Liftus!");
@@ -62,7 +62,7 @@ public class IntroductionSection extends SectionComponent {
         about.getElement().addEventListener("mouseout", e -> about.getStyle().set("transform", "scale(1)"));
 
         RouterLink rideNow = new RouterLink("Ride Now", LoginView.class);
-        rideNow.addClassNames("text-xs", "text-header", "text-primary", "font-bold", "p-s", "rounded-l", "bg-primary-10");
+        rideNow.addClassNames("text-xs", "text-primary", "font-bold", "p-s", "rounded-l", "bg-primary-10");
         rideNow.getStyle().set("transition", "all 0.3s");
         rideNow.getStyle().set("width", "100px");
         rideNow.getStyle().set("text-align", "center");

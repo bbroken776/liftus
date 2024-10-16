@@ -64,7 +64,8 @@
     text-align: center;
   }
 
-  .introduction-image {
+  .introduction-image,
+  .about-image {
     display: none;
   }
 

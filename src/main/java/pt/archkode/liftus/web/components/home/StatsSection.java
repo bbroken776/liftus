@@ -39,7 +39,7 @@ public class StatsSection extends SectionComponent {
         statsTitle.setAlignItems(Alignment.CENTER);
         
         H2 title = new H2("Our Stats");
-        title.addClassNames("text-2xl", "font-bold", "text-header", "text-primary");
+        title.addClassNames("text-2xl", "font-bold", "text-primary");
         title.getStyle().set("margin", "0 0 10px 0");
         
         Div divider = new Div();
@@ -55,7 +55,7 @@ public class StatsSection extends SectionComponent {
         Div statsCards = new Div();
         statsCards.addClassNames("stats-cards", "p-m");
         statsCards.getStyle().set("margin-top", "20px");
-        
+
         statsCards.add(
                 createStatCard("1000", "Drivers"),
                 createStatCard("5000", "Passengers"),
@@ -72,7 +72,7 @@ public class StatsSection extends SectionComponent {
         statCard.setWidthFull();
         
         H2 dataText = new H2(data);
-        dataText.addClassNames("text-3xl", "font-bold", "text-header", "text-primary", "counter");
+        dataText.addClassNames("text-3xl", "font-bold", "text-primary", "counter");
         
         Span textText = new Span(text);
         textText.addClassNames("card-text", "text-xs", "text-body", "text-contrast");

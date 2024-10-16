@@ -61,7 +61,7 @@ public class RootLayout extends VerticalLayout {
         RouterLink homeLink = new RouterLink("Home", HomeView.class);
         homeLink.setHighlightCondition(HighlightConditions.sameLocation());
         homeLink.setHighlightAction(HighlightActions.toggleClassName("font-medium"));
-        homeLink.addClassNames("text-header", "text-m", "p-s", "rounded-l");
+        homeLink.addClassNames("text-m", "p-s", "rounded-l");
         homeLink.getElement().addEventListener("mouseover", e -> homeLink.addClassName("bg-contrast-5"));
         homeLink.getElement().addEventListener("mouseout", e -> homeLink.removeClassName("bg-contrast-5"));
 
