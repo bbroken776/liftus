@@ -24,7 +24,8 @@ public class HomeView extends WrapperComponent {
 
         SectionComponent introductionSection = new IntroductionSection();
         SectionComponent statsSection = new StatsSection();
-        //Create me 10 new SectionComponents random names
+
+        
         SectionComponent section1 = new SectionComponent("section1", "section1-section");
         section1.addComponents(new Span("Section 1"));
 
