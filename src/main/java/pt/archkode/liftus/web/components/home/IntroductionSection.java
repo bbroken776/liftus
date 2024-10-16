@@ -21,6 +21,8 @@ public class IntroductionSection extends SectionComponent {
 
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.BETWEEN);
+        getStyle().set("margin-top", "70px");
+
         addComponents(introductionText, introductionImage);
     }
 

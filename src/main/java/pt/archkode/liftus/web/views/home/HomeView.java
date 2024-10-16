@@ -6,6 +6,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 
+import pt.archkode.liftus.web.components.home.AboutSection;
 import pt.archkode.liftus.web.components.home.IntroductionSection;
 import pt.archkode.liftus.web.components.home.StatsSection;
 import pt.archkode.liftus.web.components.shared.SectionComponent;
@@ -24,7 +25,7 @@ public class HomeView extends WrapperComponent {
 
         SectionComponent introductionSection = new IntroductionSection();
         SectionComponent statsSection = new StatsSection();
-
+        SectionComponent aboutSection = new AboutSection();
         
         SectionComponent section1 = new SectionComponent("section1", "section1-section");
         section1.addComponents(new Span("Section 1"));
@@ -41,6 +42,6 @@ public class HomeView extends WrapperComponent {
         SectionComponent section5 = new SectionComponent("section5", "section5-section");
         section5.addComponents(new Span("Section 5"));
 
-        add(introductionSection, statsSection, section1, section2, section3, section4, section5);
+        add(introductionSection, statsSection, aboutSection, section1, section2, section3, section4, section5);
     }
 }

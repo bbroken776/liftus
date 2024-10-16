@@ -43,6 +43,10 @@
   margin-left: 5px;
 }
 
+.counter {
+  transition: all 0.3s ease;
+}
+
 @media (max-width: 900px) {
   .introduction-section {
     justify-content: center !important;
