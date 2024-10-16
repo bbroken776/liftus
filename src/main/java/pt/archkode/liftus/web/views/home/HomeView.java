@@ -13,6 +13,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 
+import pt.archkode.liftus.web.components.SectionComponent;
 import pt.archkode.liftus.web.components.WrapperComponent;
 import pt.archkode.liftus.web.layouts.MainLayout;
 import pt.archkode.liftus.web.views.login.LoginView;
@@ -25,21 +26,14 @@ public class HomeView extends WrapperComponent {
 
     public HomeView() {
         setWidthFull();
-        
-        add(createIntroductionSection(createIntroText(), createIntroImage()));
-    }
 
-    private HorizontalLayout createIntroductionSection(Component... components) {
-        HorizontalLayout introductionSection = new HorizontalLayout();
-        introductionSection.setWidthFull();
-        introductionSection.setId("introduction");
-        introductionSection.addClassNames("introduction-section","p-m");
-        introductionSection.getStyle().set("margin-top", "100px");
-        introductionSection.setAlignItems(Alignment.CENTER);
-        introductionSection.setJustifyContentMode(JustifyContentMode.BETWEEN);
+        SectionComponent introductionSection = new SectionComponent("introduction", "introduction-section");
+        introductionSection.addComponents(createIntroText(), createIntroImage());
 
-        introductionSection.add(components);
-        return introductionSection;
+        SectionComponent statsSection = new SectionComponent("stats", "stats-section");
+        statsSection.addComponents(new Span("Stats section"));
+
+        add(introductionSection, statsSection);
     }
 
     private VerticalLayout createIntroText() {
@@ -50,7 +44,7 @@ public class HomeView extends WrapperComponent {
         introductionText.setJustifyContentMode(JustifyContentMode.CENTER);
 
         Span advertisement = new Span("Create your account today and get 50% off your first ride!");
-        advertisement.addClassNames("introduction-advertisement","text-xs", "text-body", "text-primary", "font-bold", "p-s", "rounded-l","bg-primary-10");
+        advertisement.addClassNames("introduction-advertisement", "text-xs", "text-body", "text-primary", "font-bold", "p-s", "rounded-l", "bg-primary-10");
 
         H1 title = new H1("Welcome to Liftus");
         title.addClassNames("font-bold", "text-3xl", "text-header", "text-primary");
@@ -71,6 +65,7 @@ public class HomeView extends WrapperComponent {
         Anchor about = new Anchor("#about", "Learn more about us!");
         about.addClassNames("text-xs", "text-body", "font-bold", "p-s", "rounded-l", "border", "border-primary-50");
         about.getStyle().set("transition", "all 0.3s");
+
         about.getElement().addEventListener("mouseover", e -> about.getStyle().set("transform", "scale(1.05)"));
         about.getElement().addEventListener("mouseout", e -> about.getStyle().set("transform", "scale(1)"));
 
