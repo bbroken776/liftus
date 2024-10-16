@@ -1,0 +1,16 @@
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--lumo-primary-color);
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+html,
+body {
+  scroll-behavior: smooth !important;
+}

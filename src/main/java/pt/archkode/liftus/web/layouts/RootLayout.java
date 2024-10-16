@@ -14,7 +14,7 @@ import com.vaadin.flow.router.RouterLink;
 
 import pt.archkode.liftus.data.User;
 import pt.archkode.liftus.security.AuthenticatedUser;
-import pt.archkode.liftus.web.components.WrapperComponent;
+import pt.archkode.liftus.web.components.shared.WrapperComponent;
 import pt.archkode.liftus.web.views.dashboard.DashboardView;
 import pt.archkode.liftus.web.views.home.HomeView;
 import pt.archkode.liftus.web.views.login.LoginView;

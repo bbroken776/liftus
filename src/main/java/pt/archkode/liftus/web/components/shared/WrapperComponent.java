@@ -1,4 +1,4 @@
-package pt.archkode.liftus.web.components;
+package pt.archkode.liftus.web.components.shared;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.dependency.CssImport;
