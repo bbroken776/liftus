@@ -8,13 +8,10 @@ import pt.archkode.liftus.security.AuthenticatedUser;
 
 @CssImport("./styles/shared.css")
 public class MainLayout extends VerticalLayout implements RouterLayout {
-    private RootLayout rootLayout;
-
     public MainLayout(AuthenticatedUser authenticatedUser) {
         setPadding(false);
         setSpacing(false);
 
-        rootLayout = new RootLayout(authenticatedUser);
-        add(rootLayout);
+        add(new RootLayout(authenticatedUser));
     }
 }

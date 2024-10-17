@@ -2,11 +2,8 @@ package pt.archkode.liftus.web.layouts;
 
 import java.util.Optional;
 
-import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightActions;
@@ -24,7 +21,6 @@ import pt.archkode.liftus.web.views.login.LoginView;
 public class RootLayout extends VerticalLayout {
 
     private AuthenticatedUser authenticatedUser;
-    private Div body;
 
     public RootLayout(AuthenticatedUser authenticatedUser) {
         this.authenticatedUser = authenticatedUser;
@@ -36,7 +32,7 @@ public class RootLayout extends VerticalLayout {
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);
 
-        add(new WrapperComponent(createHeader(), createBody(), createFooter()));
+        add(new WrapperComponent(createHeader()));
     }
 
     private HorizontalLayout createHeader() {
@@ -67,41 +63,19 @@ public class RootLayout extends VerticalLayout {
         homeLink.getElement().addEventListener("mouseout", e -> homeLink.removeClassName("bg-contrast-5"));
 
         Optional<User> existsUser = authenticatedUser.get();
-        RouterLink dashboardLink = new RouterLink(existsUser.isPresent() ? "Hey, " + existsUser.get().getName() : "Dashboard", existsUser.isPresent() ? DashboardView.class : LoginView.class);
+        RouterLink dashboardLink = new RouterLink(
+                existsUser.isPresent() ? "Hey, " + existsUser.get().getName() : "Dashboard",
+                existsUser.isPresent() ? DashboardView.class : LoginView.class);
         dashboardLink.addClassNames("text-primary", "text-m", "p-s", "rounded-l", "bg-primary-10");
         dashboardLink.getStyle().set("transition", "all 0.3s");
-        dashboardLink.getElement().addEventListener("mouseover", e -> dashboardLink.getStyle().set("transform", "scale(1.05)"));
-        dashboardLink.getElement().addEventListener("mouseout", e -> dashboardLink.getStyle().set("transform", "scale(1)"));
+        dashboardLink.getElement().addEventListener("mouseover",
+                e -> dashboardLink.getStyle().set("transform", "scale(1.05)"));
+        dashboardLink.getElement().addEventListener("mouseout",
+                e -> dashboardLink.getStyle().set("transform", "scale(1)"));
 
         HorizontalLayout headerLinks = new HorizontalLayout(homeLink, dashboardLink);
         headerLinks.setSpacing(true);
 
         return headerLinks;
     }
-
-    private Div createBody() {
-        body = new Div();
-        return body;
-    }
-
-    private HorizontalLayout createFooter() {
-        HorizontalLayout footer = new HorizontalLayout();
-        footer.setWidthFull();
-        footer.getStyle().set("background", "black");
-
-        footer.add(createFooterText());
-        return footer;
-    }
-
-    private Span createFooterText() {
-        Span footerText = new Span("© 2024 Liftus. All rights reserved.");
-        footerText.addClassNames("text-primary-contrast", "text-xs");
-
-        return footerText;
-    }
-
-   /*  public void addView(Component component) { 
-        body.removeAll();
-        body.add(component);
-    }*/
 }
