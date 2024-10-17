@@ -5,6 +5,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 @CssImport("./styles/wrapper.css")
+@CssImport("./styles/shared.css")
 public class WrapperComponent extends VerticalLayout {
 
     public WrapperComponent(Component... components) {

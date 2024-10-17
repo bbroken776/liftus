@@ -26,22 +26,7 @@ public class HomeView extends WrapperComponent {
         SectionComponent introductionSection = new IntroductionSection();
         SectionComponent statsSection = new StatsSection();
         SectionComponent aboutSection = new AboutSection();
-        
-        SectionComponent section1 = new SectionComponent("section1", "section1-section");
-        section1.addComponents(new Span("Section 1"));
 
-        SectionComponent section2 = new SectionComponent("section2", "section2-section");
-        section2.addComponents(new Span("Section 2"));
-
-        SectionComponent section3 = new SectionComponent("section3", "section3-section");
-        section3.addComponents(new Span("Section 3"));
-
-        SectionComponent section4 = new SectionComponent("section4", "section4-section");
-        section4.addComponents(new Span("Section 4"));
-
-        SectionComponent section5 = new SectionComponent("section5", "section5-section");
-        section5.addComponents(new Span("Section 5"));
-
-        add(introductionSection, statsSection, aboutSection, section1, section2, section3, section4, section5);
+        add(introductionSection, statsSection, aboutSection);
     }
 }

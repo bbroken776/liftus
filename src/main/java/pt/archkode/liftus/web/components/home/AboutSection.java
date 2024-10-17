@@ -1,5 +1,6 @@
 package pt.archkode.liftus.web.components.home;
 
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
@@ -16,6 +17,7 @@ public class AboutSection extends SectionComponent {
         super("about", "about-section");
 
         VerticalLayout aboutWrapper = new VerticalLayout();
+        aboutWrapper.setWidthFull();
         aboutWrapper.setSpacing(false);
         aboutWrapper.setPadding(false);
 
@@ -23,6 +25,9 @@ public class AboutSection extends SectionComponent {
         aboutWrapper.add(aboutTitle);
 
         HorizontalLayout aboutHWrapper = new HorizontalLayout();
+        aboutHWrapper.setWidthFull();
+
+        aboutHWrapper.setClassName("about-content");
         aboutHWrapper.getStyle().set("margin-top", "20px");
         aboutHWrapper.setPadding(false);
         aboutHWrapper.setSpacing(false);
@@ -30,7 +35,7 @@ public class AboutSection extends SectionComponent {
         aboutHWrapper.setJustifyContentMode(JustifyContentMode.BETWEEN);
 
         Image aboutImage = createAboutImage();
-        VerticalLayout aboutText = createAboutText();
+        VerticalLayout aboutText = createAboutText(aboutImage);
 
         aboutHWrapper.add(aboutImage, aboutText);
         aboutWrapper.add(aboutHWrapper);
@@ -59,23 +64,49 @@ public class AboutSection extends SectionComponent {
     private Image createAboutImage() {
         Image aboutImage = new Image("images/mobile.png", "About Liftus Mobile");
         aboutImage.setClassName("about-image");
+
+        aboutImage.setMaxWidth("400px");
+        aboutImage.getStyle().set("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+
         return aboutImage;
     }
 
-    private VerticalLayout createAboutText() {
+    private VerticalLayout createAboutText(Image aboutImage) {
         VerticalLayout aboutText = new VerticalLayout();
-        aboutText.setPadding(false);
-        aboutText.setSpacing(false);
-        aboutText.setAlignItems(Alignment.CENTER);
+        aboutText.setClassName("about-text");
+        aboutText.setMaxWidth("600px");
 
         H1 title = new H1("Make your life easier with us! Help us help you!");
-        title.addClassNames("font-bold", "text-3xl", "text-error");
-        
-        Span introduction = new Span("Liftus is a platform that connects drivers with passengers. We aim to provide a safe and reliable service to our users. Our platform is easy to use and we have a dedicated team to help you with any issues you may have.");
-        introduction.addClassNames("text-m", "text-body");
+        title.addClassNames("font-bold", "text-3xl", "text-yellow");
 
-        aboutText.add(title, introduction);
+        Span about = new Span( "Liftus is a platform that connects people with drivers. We aim to make your life easier and less stressful by providing a reliable and affordable transportation service. Our mission is to help you get to your destination safely and on time, so you can focus on what matters most to you.");
+        about.addClassNames("text-m", "text-body");
+
+        Anchor aboutButton = createAboutButton(aboutImage);
+
+        aboutText.add(title, about, aboutButton);
         return aboutText;
+    }
+
+    private Anchor createAboutButton(Image aboutImage) {
+        Anchor aboutButton = new Anchor("/contact", "Talk with us!");
+        aboutButton.setWidthFull();
+        aboutButton.addClassNames("about-button", "text-sm", "text-primary-contrast", "font-extrabold", "p-s", "rounded-l", "bg-primary");
+        aboutButton.getStyle().set("transition", "all 0.3s");
+        aboutButton.getStyle().set("text-align", "center");
+
+        aboutButton.getElement().addEventListener("mouseover", e -> {
+            aboutButton.removeClassName("text-primary-contrast");
+            aboutButton.addClassNames("bg-primary-10", "text-primary", "border", "border-primary-50");
+            aboutImage.addClassName("pulsing");
+        });
+        aboutButton.getElement().addEventListener("mouseout", e -> {
+            aboutImage.removeClassName("pulsing");
+            aboutButton.removeClassNames("bg-primary-10", "text-primary", "border", "border-primary-50");
+            aboutButton.addClassNames("text-primary-contrast");
+        });
+
+        return aboutButton;
     }
 
 }

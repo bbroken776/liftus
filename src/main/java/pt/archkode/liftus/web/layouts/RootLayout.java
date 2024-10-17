@@ -6,6 +6,7 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightActions;
@@ -86,12 +87,21 @@ public class RootLayout extends VerticalLayout {
     private HorizontalLayout createFooter() {
         HorizontalLayout footer = new HorizontalLayout();
         footer.setWidthFull();
+        footer.getStyle().set("background", "black");
 
+        footer.add(createFooterText());
         return footer;
     }
 
-    public void addView(Component component) {
+    private Span createFooterText() {
+        Span footerText = new Span("© 2024 Liftus. All rights reserved.");
+        footerText.addClassNames("text-primary-contrast", "text-xs");
+
+        return footerText;
+    }
+
+   /*  public void addView(Component component) { 
         body.removeAll();
         body.add(component);
-    }
+    }*/
 }
