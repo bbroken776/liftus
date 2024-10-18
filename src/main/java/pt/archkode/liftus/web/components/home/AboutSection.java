@@ -5,7 +5,7 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -79,8 +79,9 @@ public class AboutSection extends SectionComponent {
         H1 title = new H1("Make your life easier with us! Help us help you!");
         title.addClassNames("font-bold", "text-3xl", "text-yellow");
 
-        Span about = new Span( "Liftus is a platform that connects people with drivers. We aim to make your life easier and less stressful by providing a reliable and affordable transportation service. Our mission is to help you get to your destination safely and on time, so you can focus on what matters most to you.");
+        Paragraph about = new Paragraph( "Liftus is a platform that connects people with drivers. We aim to make your life easier and less stressful by providing a reliable and affordable transportation service. Our mission is to help you get to your destination safely and on time, so you can focus on what matters most to you.");
         about.addClassNames("text-m", "text-body");
+        about.getStyle().set("text-align", "justify");
 
         Anchor aboutButton = createAboutButton(aboutImage);
 
