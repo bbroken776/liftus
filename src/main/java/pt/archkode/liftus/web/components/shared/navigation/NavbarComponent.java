@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -28,7 +27,7 @@ public class NavbarComponent extends VerticalLayout {
     private HorizontalLayout createNavbar(Component... components) {
         HorizontalLayout navbar = new HorizontalLayout(components);
         navbar.setWidthFull();
-        addClassName("navbar");
+        navbar.setClassName("navbar");
         navbar.setPadding(true);
         navbar.setAlignItems(Alignment.CENTER);
         navbar.setJustifyContentMode(JustifyContentMode.BETWEEN);
@@ -48,20 +47,17 @@ public class NavbarComponent extends VerticalLayout {
         homeLink.setHighlightCondition(HighlightConditions.sameLocation());
         homeLink.setHighlightAction(HighlightActions.toggleClassName("font-medium"));
         homeLink.addClassNames("text-m", "p-s", "rounded-l");
+        homeLink.getStyle().set("transition", "all 0.3s");
         homeLink.getElement().addEventListener("mouseover", e -> homeLink.addClassName("bg-contrast-5"));
         homeLink.getElement().addEventListener("mouseout", e -> homeLink.removeClassName("bg-contrast-5"));
 
         Optional<User> existsUser = user.get();
-        RouterLink dashboardLink = new RouterLink(
-                existsUser.isPresent() ? "Hey, " + existsUser.get().getName() : "Dashboard",
-                existsUser.isPresent() ? DashboardView.class : LoginView.class);
+        RouterLink dashboardLink = new RouterLink(existsUser.isPresent() ? "Hey, " + existsUser.get().getName() : "Dashboard", existsUser.isPresent() ? DashboardView.class : LoginView.class);
         dashboardLink.addClassNames("text-primary", "text-m", "p-s", "rounded-l", "bg-primary-10");
         dashboardLink.getStyle().set("transition", "all 0.3s");
 
-        dashboardLink.getElement().addEventListener("mouseover",
-                e -> dashboardLink.getStyle().set("transform", "scale(1.05)"));
-        dashboardLink.getElement().addEventListener("mouseout",
-                e -> dashboardLink.getStyle().set("transform", "scale(1)"));
+        dashboardLink.getElement().addEventListener("mouseover", e -> dashboardLink.getStyle().set("transform", "scale(1.05)"));
+        dashboardLink.getElement().addEventListener("mouseout", e -> dashboardLink.getStyle().set("transform", "scale(1)"));
 
         HorizontalLayout headerLinks = new HorizontalLayout(homeLink, dashboardLink);
         headerLinks.setSpacing(true);

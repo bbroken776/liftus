@@ -27,11 +27,13 @@ public class MainLayout extends VerticalLayout implements RouterLayout {
 
     private Div contentArea() {
         this.contentArea = new Div();
-        return contentArea;
+        this.contentArea.setClassName("content-area");
+        this.contentArea.setWidthFull();
+        return this.contentArea;
     }
 
     public void showRouterLayoutContent(HasElement content) {
-        contentArea.removeAll();
-        contentArea.getElement().appendChild(content.getElement());
+        this.contentArea.removeAll();
+        this.contentArea.getElement().appendChild(content.getElement());
     }
 }

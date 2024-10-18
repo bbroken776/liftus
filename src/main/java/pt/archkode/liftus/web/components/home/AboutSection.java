@@ -81,7 +81,6 @@ public class AboutSection extends SectionComponent {
 
         Paragraph about = new Paragraph( "Liftus is a platform that connects people with drivers. We aim to make your life easier and less stressful by providing a reliable and affordable transportation service. Our mission is to help you get to your destination safely and on time, so you can focus on what matters most to you.");
         about.addClassNames("text-m", "text-body");
-        about.getStyle().set("text-align", "justify");
 
         Anchor aboutButton = createAboutButton(aboutImage);
 

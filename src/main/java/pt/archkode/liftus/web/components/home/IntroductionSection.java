@@ -43,7 +43,6 @@ public class IntroductionSection extends SectionComponent {
 
         Paragraph introduction = new Paragraph("Liftus is a cutting-edge ride-sharing platform that connects drivers and passengers in real time, offering a quick and reliable way to get around. Whether you're commuting to work, running errands, or heading out for a night on the town, simply request a ride via our user-friendly app, and a driver will arrive to pick you up within minutes. Experience the convenience of modern transportation with Liftus!");
         introduction.addClassNames("text-m", "text-body");
-        introduction.getStyle().set("text-align", "justify");
 
         HorizontalLayout textButtons = createIntroductionButtons(advertisement);
 

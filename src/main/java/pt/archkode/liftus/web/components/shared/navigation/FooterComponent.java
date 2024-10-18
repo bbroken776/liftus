@@ -5,14 +5,12 @@ import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
-import pt.archkode.liftus.web.components.shared.WrapperComponent;
-
 public class FooterComponent extends VerticalLayout {
 
     public FooterComponent() {
-        addClassName("bg-contrast-5");
+        addClassName("bg-contrast-10");
 
-        add(new WrapperComponent(createFooter(createText())));
+        add(createFooter(createText()));
     }
 
     public HorizontalLayout createFooter(Component... components) {

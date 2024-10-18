@@ -9,8 +9,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 public class WrapperComponent extends VerticalLayout {
 
     public WrapperComponent(Component... components) {
-        setClassName("content-wrapper");
+        setWidthFull();
 
+        setClassName("content-wrapper");
         getStyle().set("max-width", "1280px");
         getStyle().set("margin", "0 auto");
         getStyle().set("padding-left", "1rem");

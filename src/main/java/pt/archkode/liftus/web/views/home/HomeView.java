@@ -20,12 +20,6 @@ import pt.archkode.liftus.web.layouts.MainLayout;
 public class HomeView extends WrapperComponent {
 
     public HomeView() {
-        setWidthFull();
-
-        SectionComponent introductionSection = new IntroductionSection();
-        SectionComponent statsSection = new StatsSection();
-        SectionComponent aboutSection = new AboutSection();
-
-        add(introductionSection, statsSection, aboutSection);
+        add(new IntroductionSection(), new StatsSection(), new AboutSection());
     }
 }
