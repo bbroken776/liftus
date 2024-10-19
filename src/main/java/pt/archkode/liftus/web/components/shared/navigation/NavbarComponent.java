@@ -11,12 +11,12 @@ import com.vaadin.flow.router.HighlightActions;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
 
-import pt.archkode.liftus.data.User;
+import pt.archkode.liftus.data.entity.UserEntity;
 import pt.archkode.liftus.security.AuthenticatedUser;
 import pt.archkode.liftus.web.components.shared.WrapperComponent;
+import pt.archkode.liftus.web.views.HomeView;
+import pt.archkode.liftus.web.views.auth.LoginView;
 import pt.archkode.liftus.web.views.dashboard.DashboardView;
-import pt.archkode.liftus.web.views.home.HomeView;
-import pt.archkode.liftus.web.views.login.LoginView;
 
 @CssImport("./styles/navbar.css")
 public class NavbarComponent extends VerticalLayout {
@@ -51,8 +51,8 @@ public class NavbarComponent extends VerticalLayout {
         homeLink.getElement().addEventListener("mouseover", e -> homeLink.addClassName("bg-contrast-5"));
         homeLink.getElement().addEventListener("mouseout", e -> homeLink.removeClassName("bg-contrast-5"));
 
-        Optional<User> existsUser = user.get();
-        RouterLink dashboardLink = new RouterLink(existsUser.isPresent() ? "Hey, " + existsUser.get().getName() : "Dashboard", existsUser.isPresent() ? DashboardView.class : LoginView.class);
+        Optional<UserEntity> existsUser = user.get();
+        RouterLink dashboardLink = new RouterLink(existsUser.isPresent() ? "Hey, " + existsUser.get().getFullName() : "Dashboard", existsUser.isPresent() ? DashboardView.class : LoginView.class);
         dashboardLink.addClassNames("text-primary", "text-m", "p-s", "rounded-l", "bg-primary-10");
         dashboardLink.getStyle().set("transition", "all 0.3s");
 

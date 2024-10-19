@@ -11,7 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.RouterLink;
 
 import pt.archkode.liftus.web.components.shared.SectionComponent;
-import pt.archkode.liftus.web.views.login.LoginView;
+import pt.archkode.liftus.web.views.auth.LoginView;
 
 public class IntroductionSection extends SectionComponent {
     public IntroductionSection() {

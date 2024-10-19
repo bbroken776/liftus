@@ -1,4 +1,4 @@
-package pt.archkode.liftus.web.views.login;
+package pt.archkode.liftus.web.views.auth;
 
 import com.vaadin.flow.component.login.LoginI18n;
 import com.vaadin.flow.component.login.LoginOverlay;
@@ -9,11 +9,12 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.internal.RouteUtil;
 import com.vaadin.flow.server.VaadinService;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+
 import pt.archkode.liftus.security.AuthenticatedUser;
 
 @AnonymousAllowed
 @PageTitle("Login")
-@Route(value = "login")
+@Route(value = "auth/login")
 public class LoginView extends LoginOverlay implements BeforeEnterObserver {
 
     private final AuthenticatedUser authenticatedUser;
@@ -25,7 +26,7 @@ public class LoginView extends LoginOverlay implements BeforeEnterObserver {
         LoginI18n i18n = LoginI18n.createDefault();
         i18n.setHeader(new LoginI18n.Header());
         i18n.getHeader().setTitle("Liftus");
-        i18n.getHeader().setDescription("Login using user/user or admin/admin");
+        i18n.getHeader().setDescription("Login using user/user, driver/driver or admin/admin");
         i18n.setAdditionalInformation(null);
         setI18n(i18n);
 
@@ -36,7 +37,6 @@ public class LoginView extends LoginOverlay implements BeforeEnterObserver {
     @Override
     public void beforeEnter(BeforeEnterEvent event) {
         if (authenticatedUser.get().isPresent()) {
-            // Already logged in
             setOpened(false);
             event.forwardTo("");
         }

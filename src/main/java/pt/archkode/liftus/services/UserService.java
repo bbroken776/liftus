@@ -1,13 +1,17 @@
 package pt.archkode.liftus.services;
 
 import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import pt.archkode.liftus.data.User;
-import pt.archkode.liftus.data.UserRepository;
 
+import io.micrometer.common.lang.NonNullApi;
+import pt.archkode.liftus.data.entity.UserEntity;
+import pt.archkode.liftus.data.repository.UserRepository;
+
+@NonNullApi
 @Service
 public class UserService {
 
@@ -17,11 +21,11 @@ public class UserService {
         this.repository = repository;
     }
 
-    public Optional<User> get(Long id) {
+    public Optional<UserEntity> get(Long id) {
         return repository.findById(id);
     }
 
-    public User update(User entity) {
+    public UserEntity update(UserEntity entity) {
         return repository.save(entity);
     }
 
@@ -29,11 +33,11 @@ public class UserService {
         repository.deleteById(id);
     }
 
-    public Page<User> list(Pageable pageable) {
+    public Page<UserEntity> list(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
-    public Page<User> list(Pageable pageable, Specification<User> filter) {
+    public Page<UserEntity> list(Pageable pageable, Specification<UserEntity> filter) {
         return repository.findAll(filter, pageable);
     }
 

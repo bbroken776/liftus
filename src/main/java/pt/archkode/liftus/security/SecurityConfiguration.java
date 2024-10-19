@@ -10,7 +10,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.vaadin.flow.spring.security.VaadinWebSecurity;
 
-import pt.archkode.liftus.web.views.login.LoginView;
+import pt.archkode.liftus.web.views.auth.LoginView;
 
 @EnableWebSecurity
 @Configuration
