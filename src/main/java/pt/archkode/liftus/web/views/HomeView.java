@@ -14,7 +14,6 @@ import pt.archkode.liftus.web.layouts.MainLayout;
 @PageTitle("Home")
 @Route(value = "", layout = MainLayout.class)
 @AnonymousAllowed
-
 @CssImport("./styles/home.css")
 public class HomeView extends WrapperComponent {
     public HomeView() {

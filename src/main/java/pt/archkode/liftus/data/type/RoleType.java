@@ -1,5 +1,5 @@
 package pt.archkode.liftus.data.type;
 
-public enum Role {
+public enum RoleType {
     USER, DRIVER, ADMIN;
 }

@@ -2,8 +2,6 @@ package pt.archkode.liftus.data.entity;
 
 import java.util.Set;
 
-import javax.management.relation.Role;
-
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -15,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import pt.archkode.liftus.data.type.RoleType;
 
 @Entity
 @Table(name = "users")
@@ -40,8 +39,8 @@ public class UserEntity extends AbstractEntity {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    private Set<Role> roles;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<RoleType> roles;
 
     public Long getId() {
         return id;
@@ -91,11 +90,17 @@ public class UserEntity extends AbstractEntity {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
+    public Set<RoleType> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(Set<RoleType> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity [email=" + email + ", firstName=" + firstName + ", id=" + id + ", lastName=" + lastName
+                + ", password=" + password + ", roles=" + roles + ", username=" + username + "]";
     }
 }

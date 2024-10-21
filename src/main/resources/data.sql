@@ -1,11 +1,3 @@
-CREATE TABLE
-    user_roles (
-        user_id BIGINT NOT NULL,
-        roles VARCHAR(255) NOT NULL,
-        PRIMARY KEY (user_id, roles),
-        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
-    );
-
 INSERT INTO
     users (
         version,
@@ -37,10 +29,31 @@ INSERT INTO
         email,
         password
     )
-VALUES
+values
     (
         1,
         2,
+        'Sameen',
+        'Shawn',
+        'driver',
+        'driver@liftus.pt',
+        '$2b$12$WZAqlPaXBim68sd8JPZJ5.EL7p.KP40YDWTRtIZ/wsh3R5XRqb72W'
+    );
+
+INSERT INTO
+    users (
+        version,
+        id,
+        first_name,
+        last_name,
+        username,
+        email,
+        password
+    )
+VALUES
+    (
+        1,
+        3,
         'Agata',
         'Gomes',
         'admin',
@@ -49,16 +62,21 @@ VALUES
     );
 
 INSERT INTO
-    user_roles (user_id, roles)
+    user_entity_roles (user_entity_id, roles)
 VALUES
     (1, 'USER');
 
-INSERT INTO
-    user_roles (user_id, roles)
+INSERT INTO 
+    user_entity_roles (user_entity_id, roles)
 VALUES
-    (2, 'USER');
+    (2, 'DRIVER');
 
 INSERT INTO
-    user_roles (user_id, roles)
+    user_entity_roles (user_entity_id, roles)
 VALUES
-    (2, 'ADMIN');
+    (3, 'USER');
+
+INSERT INTO
+    user_entity_roles (user_entity_id, roles)
+VALUES
+    (3, 'ADMIN');

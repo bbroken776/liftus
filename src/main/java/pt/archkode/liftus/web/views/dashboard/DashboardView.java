@@ -8,10 +8,11 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility.Margin;
 import jakarta.annotation.security.RolesAllowed;
+import pt.archkode.liftus.web.layouts.DashboardLayout;
 
 @PageTitle("User Dashboard")
-@Route("user-dashboard")
-@RolesAllowed("USER")
+@Route(value = "dashboard", layout = DashboardLayout.class)
+@RolesAllowed({"USER", "DRIVER", "ADMIN"})
 public class DashboardView extends VerticalLayout {
 
     public DashboardView() {
@@ -24,7 +25,7 @@ public class DashboardView extends VerticalLayout {
         H2 header = new H2("This place intentionally left empty");
         header.addClassNames(Margin.Top.XLARGE, Margin.Bottom.MEDIUM);
         add(header);
-        add(new Paragraph("It’s a place where you can grow your own UI 🤗"));
+        add(new Paragraph("Its a place where you can grow your own UI 🤗"));
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
