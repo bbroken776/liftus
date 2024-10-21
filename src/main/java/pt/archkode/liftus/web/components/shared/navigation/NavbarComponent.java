@@ -48,17 +48,17 @@ public class NavbarComponent extends VerticalLayout {
         homeLink.setHighlightCondition(HighlightConditions.sameLocation());
         homeLink.setHighlightAction(HighlightActions.toggleClassName("font-medium"));
         homeLink.addClassNames("text-m", "p-s", "rounded-l");
-        homeLink.getStyle().set("transition", "all 0.3s");
+        homeLink.getStyle().setTransition("all 0.3s");
         homeLink.getElement().addEventListener("mouseover", e -> homeLink.addClassName("bg-contrast-5"));
         homeLink.getElement().addEventListener("mouseout", e -> homeLink.removeClassName("bg-contrast-5"));
 
         Optional<UserEntity> existsUser = user.get();
         RouterLink dashboardLink = new RouterLink(existsUser.isPresent() ? "Hey, " + existsUser.get().getFullName() : "Dashboard", existsUser.isPresent() ? DashboardView.class : LoginView.class);
         dashboardLink.addClassNames("text-primary", "text-m", "p-s", "rounded-l", "bg-primary-10");
-        dashboardLink.getStyle().set("transition", "all 0.3s");
+        dashboardLink.getStyle().setTransition("all 0.3s");
 
-        dashboardLink.getElement().addEventListener("mouseover", e -> dashboardLink.getStyle().set("transform", "scale(1.05)"));
-        dashboardLink.getElement().addEventListener("mouseout", e -> dashboardLink.getStyle().set("transform", "scale(1)"));
+        dashboardLink.getElement().addEventListener("mouseover", e -> dashboardLink.getStyle().setTransform("scale(1.05)"));
+        dashboardLink.getElement().addEventListener("mouseout", e -> dashboardLink.getStyle().setTransform("scale(1)"));
 
         HorizontalLayout headerLinks = new HorizontalLayout(homeLink, dashboardLink);
         headerLinks.setSpacing(true);

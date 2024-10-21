@@ -74,9 +74,4 @@ VALUES
 INSERT INTO
     user_entity_roles (user_entity_id, roles)
 VALUES
-    (3, 'USER');
-
-INSERT INTO
-    user_entity_roles (user_entity_id, roles)
-VALUES
     (3, 'ADMIN');

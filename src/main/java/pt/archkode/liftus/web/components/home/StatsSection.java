@@ -40,7 +40,7 @@ public class StatsSection extends SectionComponent {
         
         H2 title = new H2("Our Stats");
         title.addClassNames("text-2xl", "font-bold", "text-primary");
-        title.getStyle().set("margin", "0 0 10px 0");
+        title.getStyle().setMargin("0 0 10px 0");
         
         Div divider = new Div();
         divider.setWidth("200px");
@@ -54,7 +54,7 @@ public class StatsSection extends SectionComponent {
     private Div createStatsCards() {
         Div statsCards = new Div();
         statsCards.addClassNames("stats-cards", "p-m");
-        statsCards.getStyle().set("margin-top", "20px");
+        statsCards.getStyle().setMarginTop("20px");
 
         statsCards.add(
                 createStatCard("1000", "Drivers"),

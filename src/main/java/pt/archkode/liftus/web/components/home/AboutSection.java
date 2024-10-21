@@ -8,6 +8,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.dom.Style.TextAlign;
 
 import pt.archkode.liftus.web.components.shared.SectionComponent;
 
@@ -28,7 +29,7 @@ public class AboutSection extends SectionComponent {
         aboutHWrapper.setWidthFull();
 
         aboutHWrapper.setClassName("about-content");
-        aboutHWrapper.getStyle().set("margin-top", "20px");
+        aboutHWrapper.getStyle().setMarginTop("20px");
         aboutHWrapper.setPadding(false);
         aboutHWrapper.setSpacing(false);
         aboutHWrapper.setAlignItems(Alignment.CENTER);
@@ -50,7 +51,7 @@ public class AboutSection extends SectionComponent {
 
         H2 title = new H2("Our Mission");
         title.addClassNames("text-2xl", "font-bold", "text-primary");
-        title.getStyle().set("margin", "0 0 10px 0");
+        title.getStyle().setMargin("0 0 10px 0");
 
         Div divider = new Div();
         divider.setWidth("200px");
@@ -92,8 +93,8 @@ public class AboutSection extends SectionComponent {
         Anchor aboutButton = new Anchor("/contact", "Talk with us!");
         aboutButton.setWidthFull();
         aboutButton.addClassNames("about-button", "text-sm", "text-primary-contrast", "font-extrabold", "p-s", "rounded-l", "bg-primary");
-        aboutButton.getStyle().set("transition", "all 0.3s");
-        aboutButton.getStyle().set("text-align", "center");
+        aboutButton.getStyle().setTransition("all 0.3s");
+        aboutButton.getStyle().setTextAlign(TextAlign.CENTER);
 
         aboutButton.getElement().addEventListener("mouseover", e -> {
             aboutButton.removeClassName("text-primary-contrast");

@@ -29,7 +29,7 @@ public class SectionComponent extends HorizontalLayout {
 
         setWidthFull();
         addClassName("p-m");
-        getStyle().set("margin-top", "100px");
+        getStyle().setMarginTop("100px");
     }
 
     public void addComponents(Component... components) {

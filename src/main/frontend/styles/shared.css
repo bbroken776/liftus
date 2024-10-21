@@ -23,6 +23,10 @@ body {
   color: var(--custom-yellow);
 }
 
+.bg-yellow-10 {
+  background-color: rgba(255, 195, 11, 0.1);
+}
+
 /* KEYFRAMES AND ANIMATION CLASSES */
 @keyframes jump {
   0% {

@@ -63,7 +63,7 @@ public class UserEntity extends AbstractEntity {
     }
 
     public String getFullName() {
-        return firstName + " " + lastName;
+        return (firstName + " " + lastName).toString();
     }
 
     public String getUsername() {

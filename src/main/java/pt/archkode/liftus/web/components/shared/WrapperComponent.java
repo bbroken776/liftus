@@ -12,10 +12,9 @@ public class WrapperComponent extends VerticalLayout {
         setWidthFull();
 
         setClassName("content-wrapper");
-        getStyle().set("max-width", "1280px");
-        getStyle().set("margin", "0 auto");
-        getStyle().set("padding-left", "1rem");
-        getStyle().set("padding-right", "1rem");
+        getStyle().setMaxWidth("1280px");
+        getStyle().setMargin("0 auto");
+        getStyle().setPaddingLeft("0 1rem");
 
         add(components);
     }

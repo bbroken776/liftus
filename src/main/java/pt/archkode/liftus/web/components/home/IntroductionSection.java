@@ -8,6 +8,7 @@ import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.dom.Style.TextAlign;
 import com.vaadin.flow.router.RouterLink;
 
 import pt.archkode.liftus.web.components.shared.SectionComponent;
@@ -22,7 +23,7 @@ public class IntroductionSection extends SectionComponent {
 
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.BETWEEN);
-        getStyle().set("margin-top", "70px");
+        getStyle().setMarginTop("70px");
 
         addComponents(introductionText, introductionImage);
     }
@@ -39,7 +40,7 @@ public class IntroductionSection extends SectionComponent {
 
         H1 title = new H1("Welcome to Liftus");
         title.addClassNames("font-black", "text-3xl", "text-primary");
-        title.getStyle().set("margin-top", "20px");
+        title.getStyle().setMarginTop("20px");
 
         Paragraph introduction = new Paragraph("Liftus is a cutting-edge ride-sharing platform that connects drivers and passengers in real time, offering a quick and reliable way to get around. Whether you're commuting to work, running errands, or heading out for a night on the town, simply request a ride via our user-friendly app, and a driver will arrive to pick you up within minutes. Experience the convenience of modern transportation with Liftus!");
         introduction.addClassNames("text-m", "text-body");
@@ -53,23 +54,23 @@ public class IntroductionSection extends SectionComponent {
     private HorizontalLayout createIntroductionButtons(Component advertisementComponent) {
         HorizontalLayout linkButtons = new HorizontalLayout();
         linkButtons.setClassName("introduction-buttons");
-        linkButtons.getStyle().set("margin-top", "20px");
+        linkButtons.getStyle().setMarginTop("20px");
 
         Anchor about = new Anchor("#about", "Learn more about us!");
         about.addClassNames("text-xs", "text-body", "font-bold", "p-s", "rounded-l", "border", "border-primary-50");
-        about.getStyle().set("transition", "all 0.3s");
+        about.getStyle().setTransition("all 0.3s");
 
-        about.getElement().addEventListener("mouseover", e -> about.getStyle().set("transform", "scale(1.05)"));
-        about.getElement().addEventListener("mouseout", e -> about.getStyle().set("transform", "scale(1)"));
+        about.getElement().addEventListener("mouseover", e -> about.getStyle().setTransform("scale(1.05)"));
+        about.getElement().addEventListener("mouseout", e -> about.getStyle().setTransform("scale(1)"));
 
         RouterLink rideNow = new RouterLink("Ride Now", LoginView.class);
         rideNow.addClassNames("text-xs", "text-primary", "font-bold", "p-s", "rounded-l", "bg-primary-10");
-        rideNow.getStyle().set("transition", "all 0.3s");
-        rideNow.getStyle().set("width", "100px");
-        rideNow.getStyle().set("text-align", "center");
+        rideNow.getStyle().setTransition("all 0.3s");
+        rideNow.getStyle().setWidth("100px");
+        rideNow.getStyle().setTextAlign(TextAlign.CENTER);
 
         rideNow.getElement().addEventListener("mouseover", e -> {
-            rideNow.getStyle().set("color", "white");
+            rideNow.getStyle().setColor("white");
             rideNow.removeClassName("bg-primary-10");
             rideNow.addClassName("bg-primary");
 
@@ -77,7 +78,7 @@ public class IntroductionSection extends SectionComponent {
         });
 
         rideNow.getElement().addEventListener("mouseout", e -> {
-            rideNow.getStyle().set("color", "var(--lumo-primary-color)");
+            rideNow.getStyle().setColor("text-primary");
             rideNow.removeClassName("bg-primary");
             rideNow.addClassName("bg-primary-10");
 

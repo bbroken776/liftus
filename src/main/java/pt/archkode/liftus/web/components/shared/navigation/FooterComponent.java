@@ -25,8 +25,8 @@ public class FooterComponent extends VerticalLayout {
 
     public Paragraph createText() {
         Paragraph text = new Paragraph("© 2024/2025 Liftus. All rights reserved.");
-        text.getStyle().set("color", "text-primary");
-        text.getStyle().set("font-size", "0.8rem");
+        text.getStyle().setColor("text-primary");
+        text.getStyle().setFontSize("0.8rem");
 
         return text;
     }
